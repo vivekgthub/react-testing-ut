@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import App from './App';
 
-describe('Tests for Counter App',()=>{
+describe('Tests for Login Form',()=>{
     it('submitting the form calls onSubmit with username and password', () => {
         // create a variable called "submittedData" and a handleSubmit function that
         // accepts the data and assigns submittedData to the data that was submitted

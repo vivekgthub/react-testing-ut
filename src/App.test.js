@@ -5,6 +5,27 @@ import App from './App';
 
 describe('Tests for Login Form',()=>{
     it('submitting the form calls onSubmit with username and password', () => {
+
+    let submittedData = {};
+    const handleSubmit = (data) => {
+      submittedData = data
+    };
+
+    render(<App onSubmit={handleSubmit} />)
+
+    const USERNAME = screen.getByLabelText(/username/i);
+    const PASSWORD = screen.getByLabelText(/password/i);
+
+    userEvent.type(USERNAME, 'vivek');
+    userEvent.type(PASSWORD, 'fumakia');
+
+    const submitBtn = screen.getByRole('button', {name: /submit/i});
+    userEvent.click(submitBtn);
+
+    expect(submittedData.username).toEqual('vivek');
+    expect(submittedData.password).toEqual('fumakia');
+
+
         // create a variable called "submittedData" and a handleSubmit function that
         // accepts the data and assigns submittedData to the data that was submitted
         // Hint: if you need a hand, here's what the handleSubmit function should do:

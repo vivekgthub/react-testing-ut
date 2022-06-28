@@ -17,7 +17,7 @@ export default class TodoList extends React.Component {
   };
 
   createTodo = () => {
-    const newTodo = { id: 1, name: this.state.inputValue };
+    const newTodo = { id: this.state.todos.length, name: this.state.inputValue };
     this.setState({ todos: [...this.state.todos, newTodo], inputValue: '' });
   };
 
